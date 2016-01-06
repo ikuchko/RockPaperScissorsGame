@@ -28,4 +28,13 @@ public class AppTest extends FluentTest {
       submit(".btn");
       assertThat(pageSource()).contains("First player wins!");
     }
+
+  @Test
+    public void selectWinnerPlayer2() {
+      goTo("http://localhost:4567");
+      fillSelect("#PlayerOne").withText("Paper");
+      fillSelect("#PlayerTwo").withText("Scissors");
+      submit(".btn");
+      assertThat(pageSource()).contains("Second player wins!");
+    }
 }
