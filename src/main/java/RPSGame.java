@@ -12,6 +12,8 @@ public class RPSGame {
       return true;
     } else if ((firstPlayerChoice == "Scissors") && (secondPlayerChoice == "Rock")) {
       return false;
+    } else if ((firstPlayerChoice == "Rock") && (secondPlayerChoice == "Paper")) {
+      return false;
     } else {
       return null;
     }
