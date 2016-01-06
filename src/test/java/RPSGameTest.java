@@ -26,6 +26,12 @@ public class RPSGameTest {
     RPSGame rpsGame = new RPSGame();
     assertEquals(true, rpsGame.checkWinner("Paper", "Rock"));
   }
+
+  @Test
+  public void checkWinner_ScissorsBeatsPaper_true() {
+    RPSGame rpsGame = new RPSGame();
+    assertEquals(true, rpsGame.checkWinner("Scissors", "Paper"));
+  }
 }
 
  /*rock Scissors true
