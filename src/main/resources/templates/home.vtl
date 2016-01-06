@@ -1,14 +1,21 @@
-<h1>Scrabble score calculator</h1>
+<h1>Let's play Rock, Paper, Scissors!</h1>
 
-<p>Submit your word and we will add up your score!</p>
+<p>Submit your choice and cross your fingers:</p>
 
 <form action='/detector' method='get'>
-  <div class="form-group">
-    <label for="word">Word</label>
-    <input id="word" name="word" class="form-control" type="text">
-  </div>
+  <h3>Player One</h3>
+  <select class="form-control" id='PlayerOne' name='PlayerOne'>
+      <option name='PlayerOne'>Rock</option>
+      <option name='PlayerOne'>Paper</option>
+      <option name='PlayerOne'>Scissors</option>
+  </select>
 
-  <button type="submit" class="btn btn-info">What is your word?</button>
+  <h3>Player Two</h3>
+  <select class="form-control" id='PlayerTwo' name="PlayerTwo">
+      <option name='PlayerOne'>Rock</option>
+      <option name='PlayerOne'>Paper</option>
+      <option name='PlayerOne'>Scissors</option>
+  </select>
 
-  <a href='/numberWords'> sume link </a>
+  <button type="submit" class="btn btn-info">Fight!</button>
 </form>
