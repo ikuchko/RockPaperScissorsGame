@@ -3,6 +3,7 @@ import java.util.HashMap;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
+import java.util.Random;
 
 public class RPSGame {
   public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class RPSGame {
       String playerOneChoice = request.queryParams("PlayerOne");
       String playerTwoChoice = request.queryParams("PlayerTwo");
 
-      boolean gameResult = checkWinner(playerOneChoice, playerTwoChoice);
+      int gameResult = checkWinner(playerOneChoice, playerTwoChoice);
 
       model.put("res", gameResult);
       return new ModelAndView(model, layout);
@@ -29,21 +30,34 @@ public class RPSGame {
       }, new VelocityTemplateEngine());
   }
 
-  public static Boolean checkWinner(String firstPlayerChoice, String secondPlayerChoice) {
-    if ((firstPlayerChoice == "Rock") && (secondPlayerChoice == "Scissors")) {
-      return true;
-    } else if ((firstPlayerChoice.equals("Scissors")) && (secondPlayerChoice.equals("Rock"))) {
-      return false;
-    } else if ((firstPlayerChoice.equals("Rock")) && (secondPlayerChoice.equals("Paper"))) {
-      return false;
-    } else if ((firstPlayerChoice.equals("Paper")) && (secondPlayerChoice.equals("Rock"))) {
-      return true;
-    } else if ((firstPlayerChoice.equals("Scissors")) && (secondPlayerChoice.equals("Paper"))) {
-      return true;
-    } else if ((firstPlayerChoice.equals("Paper")) && (secondPlayerChoice.equals("Scissors"))) {
-      return false;
-    }else {
-      return null;
+  public static int checkWinner(String firstPlayerChoice, String secondPlayerChoice) {
+    if (secondPlayerChoice.equals("Random!")) {
+      secondPlayerChoice = randomChoice();
     }
+
+    if ((firstPlayerChoice.equals("Rock")) && (secondPlayerChoice.equals("Scissors"))) {
+      return 1;
+    } else if ((firstPlayerChoice.equals("Scissors")) && (secondPlayerChoice.equals("Rock"))) {
+      return 2;
+    } else if ((firstPlayerChoice.equals("Rock")) && (secondPlayerChoice.equals("Paper"))) {
+      return 2;
+    } else if ((firstPlayerChoice.equals("Paper")) && (secondPlayerChoice.equals("Rock"))) {
+      return 1;
+    } else if ((firstPlayerChoice.equals("Scissors")) && (secondPlayerChoice.equals("Paper"))) {
+      return 1;
+    } else if ((firstPlayerChoice.equals("Paper")) && (secondPlayerChoice.equals("Scissors"))) {
+      return 2;
+    } else {
+      return 0;
+    }
+  }
+  public static String randomChoice() {
+    Random randomChoice = new Random();
+    switch (randomChoice.nextInt(3)) {
+      case 0: return "Rock";
+      case 1: return "Paper";
+      case 2: return "Scissors";
+    }
+    return "";
   }
 }
