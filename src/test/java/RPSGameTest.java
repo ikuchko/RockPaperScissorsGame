@@ -6,37 +6,37 @@ public class RPSGameTest {
   @Test
   public void checkWinner_rockBeatsScissors_true() {
     RPSGame rpsGame = new RPSGame();
-    assertEquals(true, rpsGame.checkWinner("Rock", "Scissors"));
+    assertEquals(1, rpsGame.checkWinner("Rock", "Scissors"));
   }
 
   @Test
   public void checkWinner_ScissorsBeatsRocks_false() {
     RPSGame rpsGame = new RPSGame();
-    assertEquals(false, rpsGame.checkWinner("Scissors", "Rock"));
+    assertEquals(2, rpsGame.checkWinner("Scissors", "Rock"));
   }
 
   @Test
   public void checkWinner_rockBeatsPaper_false() {
     RPSGame rpsGame = new RPSGame();
-    assertEquals(false, rpsGame.checkWinner("Rock", "Paper"));
+    assertEquals(2, rpsGame.checkWinner("Rock", "Paper"));
   }
 
   @Test
   public void checkWinner_PaperBeatsRock_true() {
     RPSGame rpsGame = new RPSGame();
-    assertEquals(true, rpsGame.checkWinner("Paper", "Rock"));
+    assertEquals(1, rpsGame.checkWinner("Paper", "Rock"));
   }
 
   @Test
   public void checkWinner_ScissorsBeatsPaper_true() {
     RPSGame rpsGame = new RPSGame();
-    assertEquals(true, rpsGame.checkWinner("Scissors", "Paper"));
+    assertEquals(1, rpsGame.checkWinner("Scissors", "Paper"));
   }
 
   @Test
   public void checkWinner_PaperBeatsScissors_false() {
     RPSGame rpsGame = new RPSGame();
-    assertEquals(false, rpsGame.checkWinner("Paper", "Scissors"));
+    assertEquals(2, rpsGame.checkWinner("Paper", "Scissors"));
   }
 }
 
